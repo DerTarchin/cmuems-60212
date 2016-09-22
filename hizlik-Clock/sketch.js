@@ -1,9 +1,9 @@
-var debug = true;
+var debug = false;
 var ignoreTime = false;
 var instantDraw = false;
 var spoofHour = false;
 var spoofedHour = 3; //1, 2 is broken
-var speedTime = true;
+var speedTime = false;
 
 var cwidth = 800;
 var cheight = 800;
@@ -54,7 +54,7 @@ function growTree() {
       if(hr==0)
          branches.push(new Branch(hr, true));
       else {
-         var branch = new Branch(hr);
+         var branch = new Branch(hr, false);
          var p_index = 0;
          var parent = null;
          while(parent == null) {
@@ -70,9 +70,9 @@ function growTree() {
    for(var i=0; i<branches.length; i++) {
       branches[i].draw();
    }
+   blossoms = [];
+   dieBlossoms = [];
    if(HR>1) {
-      blossoms = [];
-      dieBlossoms = [];
       var numBlossoms = SEC;
       if(ignoreTime) numBlossoms = 60;
       for(var sec=0; sec<numBlossoms; sec++) {
@@ -146,7 +146,7 @@ function draw() {
          growTree();
       }
       else {
-         var branch = new Branch(HR);
+         var branch = new Branch(HR, false);
          var p_index = 0;
          var parent = null;
          while(parent == null) {
@@ -268,7 +268,7 @@ function Coord(x,y) {
    this.y = y;
 }
 
-function Branch(hr, trunk=false) {
+function Branch(hr, trunk) {
    this.branch = this;
    this.hour = hr;
    this.children = [];
