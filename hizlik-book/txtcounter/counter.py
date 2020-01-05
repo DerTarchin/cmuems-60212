@@ -24,8 +24,8 @@ metadata = {
 def getLogs():
 	cwd = os.getcwd()
 	os.system("cd '" + cwd + """'
-./imbfull.sh +19084212107
-./imbfull.sh nicole.hladick@gmail.com""")
+./imbfull.sh PHONE
+./imbfull.sh EMAIL""")
 
 def getFileNames():
 	for filename in glob.glob('*.txt'):
@@ -199,10 +199,10 @@ def runTextCounter():
 		start_date += timedelta(hours=1)
 
 	print "\nChatlog indexing is complete.\n"
-	print "%d total messages: %d by Hizal and %d by Nicole."%(metadata['total_H_str']+metadata['total_N_str'], metadata['total_H_str'], metadata['total_N_str'])
-	print "%d total attachments: %d by Hizal and %d by Nicole."%(metadata['total_H_att']+metadata['total_N_att'], metadata['total_H_att'], metadata['total_N_att'])
-	print "%d ave characters: %d for Hizal (max %d) and %d for Nicole (max %d)"%((metadata['total_H_str_len']+metadata['total_N_str_len'])*1.0/(metadata['total_H_str']+metadata['total_N_str']), metadata['total_H_str_len']*1.0/metadata['total_H_str'], metadata['max_H_len'], metadata['total_N_str_len']*1.0/metadata['total_N_str'], metadata['max_N_len'])
-	print "%d ave characters per hour: %d for Hizal (max %d) and %d for Nicole (max %d)"%((non0len_H + non0len_N)*1.0/(non0count_H + non0count_N), non0len_H*1.0/non0count_H, maxlen_H, non0len_N*1.0/non0count_N, maxlen_N)
+	print "%d total messages: %d by H and %d by N."%(metadata['total_H_str']+metadata['total_N_str'], metadata['total_H_str'], metadata['total_N_str'])
+	print "%d total attachments: %d by H and %d by N."%(metadata['total_H_att']+metadata['total_N_att'], metadata['total_H_att'], metadata['total_N_att'])
+	print "%d ave characters: %d for H (max %d) and %d for N (max %d)"%((metadata['total_H_str_len']+metadata['total_N_str_len'])*1.0/(metadata['total_H_str']+metadata['total_N_str']), metadata['total_H_str_len']*1.0/metadata['total_H_str'], metadata['max_H_len'], metadata['total_N_str_len']*1.0/metadata['total_N_str'], metadata['max_N_len'])
+	print "%d ave characters per hour: %d for H (max %d) and %d for N (max %d)"%((non0len_H + non0len_N)*1.0/(non0count_H + non0count_N), non0len_H*1.0/non0count_H, maxlen_H, non0len_N*1.0/non0count_N, maxlen_N)
 	
 
 runTextCounter()
